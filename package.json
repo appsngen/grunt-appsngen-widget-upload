@@ -1,0 +1,41 @@
+{
+  "name": "grunt-appsngen-widget-upload",
+  "description": "AppsNgen task for uploading widgets",
+  "version": "0.1.0",
+  "homepage": "appsngen.com",
+  "author": {
+    "name": "Maksim Volk",
+    "email": "Maksim_Volk@epam.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appsngen/grunt-appsngen-widget-upload.git"
+  },
+  "bugs": {
+    "url": "https://github.com/appsngen/grunt-appsngen-widget-upload/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "appsngen.com/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt appsngen_widget_upload"
+  },
+  "dependencies": {
+        "request": "~2.65.0",
+        "fs": "~0.0.2",
+        "async-waterfall": "~0.1.5",
+        "open": "~0.0.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin, appsngen, widget, development"
+  ]
+}
