@@ -42,13 +42,6 @@ var encodeToBase64 = function (input) {
     return output;
 };
 
-var getUrnFromViewerResponse = function (response) {
-    var message = response.message;
-    var startPosition = message.indexOf('urn');
-    var endPosition = message.substr(startPosition).indexOf(' ');
-    return message.substr(startPosition, endPosition);
-};
-
 /////////////////////////////////
 // Task register
 ////////////////////////////////
@@ -137,7 +130,7 @@ module.exports = function (grunt) {
                         else {
                             console.log(body);
                             options.statusCode = response.statusCode;
-                            options.urn = getUrnFromViewerResponse(JSON.parse(response.body));
+                            options.urn = JSON.parse(response.body).urn;
                             callback(null, options);
                         }
                     }
