@@ -1,7 +1,7 @@
 {
   "name": "grunt-appsngen-widget-upload",
   "description": "AppsNgen task for uploading widgets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "appsngen.com",
   "author": {
     "name": "Maksim Volk",
@@ -27,10 +27,10 @@
     "test": "grunt appsngen_widget_upload"
   },
   "dependencies": {
-        "request": "~2.65.0",
-        "fs": "~0.0.2",
-        "async-waterfall": "~0.1.5",
-        "open": "~0.0.5"
+    "request": "~2.65.0",
+    "fs": "~0.0.2",
+    "async-waterfall": "~0.1.5",
+    "open": "~0.0.5"
   },
   "peerDependencies": {
     "grunt": "~0.4.5"
