@@ -61,27 +61,17 @@ module.exports = function (grunt) {
 
         var credentials = username + ':' + password;
 
-        var tokenRequestBody = {
-            scope: {
-                widgets: [],
-                dataSources: [],
-                services: [
-                    'widgets'
-                ],
-                streams: [],
-                identity: false
-            }
-        };
-
         // Processing block
         waterfall([
             function (callback) { //token request
                 var options = {};
 
                 request.post(
-                    serviceAddress + '/rest-services/tokens',
+                    serviceAddress + '/rest-services/tokens/identity',
                     {
-                        body: tokenRequestBody,
+                        body: {
+                            scope: {}
+                        },
                         json: true,
                         headers: {
                             'Content-Type': 'application/json',
@@ -94,11 +84,11 @@ module.exports = function (grunt) {
                         }
                         if (!error && response.statusCode === 201) {
                             console.log('Get token success!');
-                            options.token = body.accessToken;
+                            options.token = body.identityToken;
                             callback(null, options);
                         }else{
                             console.log(body);
-                            throw ('Unexpected response: '+response.statusCode);
+                            throw ('Unexpected response: ' + response.statusCode);
                         }
                     }
                 );
