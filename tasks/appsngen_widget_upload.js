@@ -39,7 +39,7 @@ module.exports = function (grunt) {
                     grunt.log.writeln('Get token success!');
                     return Promise.resolve(response.body.identityToken);
                 }else{
-                    grunt.log.error(response.body);
+                    grunt.log.error(response.body.message);
                     throw ('Unexpected response: ' + response.statusCode);
                 }
             })
