@@ -48,6 +48,7 @@ module.exports = function (grunt) {
                 return upload(uploadOptions);
             })
             .then(function openWidgetInBrowser(urn) { // open in browser
+                done();
                 if (gruntOptions.openInBrowserAfterUpload) {
                     npmOpen(gruntOptions.serviceAddress + '/product/marketplace/widgets/config/' + urn);
                 }
