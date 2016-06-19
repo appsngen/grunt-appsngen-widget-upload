@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                     'Authorization': 'Basic: ' + new Buffer(credentials).toString('base64')
                 }
             })
-            .then(function (response) {
+            .then(function getIdentityToken(response) {
                 if (response.statusCode === 201) {
                     grunt.log.writeln('Get token success!');
                     return Promise.resolve(response.body.identityToken);
@@ -43,11 +43,11 @@ module.exports = function (grunt) {
                     throw ('Unexpected response: ' + response.statusCode);
                 }
             })
-            .then(function (token) {
+            .then(function uploadWidget(token) {
                 uploadOptions.token = token;
                 return upload(uploadOptions);
             })
-            .then(function (urn) { // open in browser
+            .then(function openWidgetInBrowser(urn) { // open in browser
                 if (gruntOptions.openInBrowserAfterUpload) {
                     npmOpen(gruntOptions.serviceAddress + '/product/marketplace/widgets/config/' + urn);
                 }
