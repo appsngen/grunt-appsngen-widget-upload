@@ -1,17 +1,12 @@
 'use strict';
 
-/////////////////////////////////
-// Required
-////////////////////////////////
 var upload = require('appsngen-widget-upload');
 var npmOpen = require('open');
 var Promise = require('bluebird').Promise;
 var post = Promise.promisify(require('request').post);
+
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-/////////////////////////////////
-// Task register
-////////////////////////////////
 module.exports = function (grunt) {
     grunt.registerTask('appsngen_widget_upload', 'AppsNgen task for uploading widgets', function () {
         var done = this.async();
@@ -38,7 +33,7 @@ module.exports = function (grunt) {
                 if (response.statusCode === 201) {
                     grunt.log.writeln('Get token success!');
                     return Promise.resolve(response.body.identityToken);
-                }else{
+                } else {
                     grunt.log.error(response.body.message);
                     throw ('Unexpected response: ' + response.statusCode);
                 }
@@ -48,6 +43,7 @@ module.exports = function (grunt) {
                 return upload(uploadOptions);
             })
             .then(function openWidgetInBrowser(urn) { // open in browser
+                grunt.log.writeln('Upload complete.');
                 done();
                 if (gruntOptions.openInBrowserAfterUpload) {
                     npmOpen(gruntOptions.serviceAddress + '/product/marketplace/widgets/config/' + urn);
