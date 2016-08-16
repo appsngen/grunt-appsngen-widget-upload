@@ -1,7 +1,7 @@
 {
   "name": "grunt-appsngen-widget-upload",
   "description": "AppsNgen task for uploading widgets",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "homepage": "appsngen.com",
   "author": {
     "name": "Maksim Volk",
