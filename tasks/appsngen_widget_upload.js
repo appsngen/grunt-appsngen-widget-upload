@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                 grunt.log.writeln('Upload complete.');
                 done();
                 if (gruntOptions.openInBrowserAfterUpload) {
-                    npmOpen(gruntOptions.serviceAddress + '/product/marketplace/widgets/config/' + urn);
+                    npmOpen(gruntOptions.serviceAddress + '/product/widgets/' + urn + '/config');
                 }
             })
             .catch(function (error) {
